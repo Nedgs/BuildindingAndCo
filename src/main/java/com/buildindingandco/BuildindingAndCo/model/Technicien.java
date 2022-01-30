@@ -1,5 +1,7 @@
 package com.buildindingandco.BuildindingAndCo.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.Getter;
@@ -32,5 +34,8 @@ public class Technicien {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     Manager manager;
+
+    @ManyToMany
+    List<Worksite> worksites;
 
 }
