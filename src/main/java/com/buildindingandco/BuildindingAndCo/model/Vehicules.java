@@ -1,6 +1,11 @@
 package com.buildindingandco.BuildindingAndCo.model;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.*;
+
+import org.springframework.lang.Nullable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,17 +19,20 @@ import lombok.AccessLevel;
 @Setter
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Adress {
 
+public class Vehicules {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(nullable = false)
-    String cityName;
+    String numPlaque;
 
-    String street;
+    String brand;
 
-    int streetNumber;
+    int builtIn;
 
+    @Nullable
+    @OneToOne(fetch = FetchType.EAGER)
+    Technicien technicien;
 }
